@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <EditText
-        android:id="@+id/etContraseña"
+        android:id="@+id/etClave"
         android:layout_width="317dp"
         android:layout_height="57dp"
         android:layout_marginTop="48dp"
@@ -67,5 +67,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etContraseña" />
+        app:layout_constraintTop_toBottomOf="@+id/etClave" />
 </androidx.constraintlayout.widget.ConstraintLayout>
