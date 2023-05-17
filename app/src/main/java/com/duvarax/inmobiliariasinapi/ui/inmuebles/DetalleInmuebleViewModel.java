@@ -5,17 +5,13 @@ import android.content.Context;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class InmueblesViewModel extends AndroidViewModel {
-
-
+public class DetalleInmuebleViewModel extends AndroidViewModel {
     private Context context;
-
-    public InmueblesViewModel(@NonNull Application application) {
+    public DetalleInmuebleViewModel(@NonNull Application application) {
         super(application);
         context = application.getApplicationContext();
     }
+    // TODO: Implement the ViewModel
 }
