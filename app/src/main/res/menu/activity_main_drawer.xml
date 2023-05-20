@@ -13,6 +13,10 @@
             android:icon="@drawable/perfil_icon"
             android:title="Perfil" />
         <item
+            android:id="@+id/nav_inmuebles"
+            android:icon="@drawable/inmo_icon"
+            android:title="Inmuebles" />
+        <item
             android:id="@+id/nav_inquilinos"
             android:icon="@drawable/inquilinos_icon"
             android:title="Inquilinos" />

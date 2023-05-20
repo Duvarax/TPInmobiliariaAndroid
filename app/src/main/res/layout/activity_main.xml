@@ -13,6 +13,7 @@
         android:layout_marginTop="48dp"
         android:ems="10"
         android:hint="Ingrese su Contraseña"
+        android:textColor="#009688"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

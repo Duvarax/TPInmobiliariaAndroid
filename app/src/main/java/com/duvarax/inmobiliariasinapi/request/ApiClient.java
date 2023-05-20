@@ -1,5 +1,7 @@
 package com.duvarax.inmobiliariasinapi.request;
 
+import android.util.Log;
+
 import com.duvarax.inmobiliariasinapi.R;
 import com.duvarax.inmobiliariasinapi.modelo.*;
 
@@ -121,8 +123,10 @@ public Propietario login(String mail, final String password){
         int posicion=inmuebles.indexOf(inmueble);
         if(posicion!=-1){
             inmuebles.set(posicion,inmueble);
+            Log.d("salida", "inmueble modificado");
         }
     }
+
 
     private void cargaDatos(){
 
