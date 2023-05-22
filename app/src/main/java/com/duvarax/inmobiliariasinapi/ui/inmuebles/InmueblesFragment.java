@@ -1,6 +1,7 @@
 package com.duvarax.inmobiliariasinapi.ui.inmuebles;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,11 +35,11 @@ public class InmueblesFragment extends Fragment {
         mv.setInmuebles().observe(getActivity(), new Observer<List<Inmueble>>() {
             @Override
             public void onChanged(List<Inmueble> inmuebles) {
+                Log.d("salida inmuebles", inmuebles.size()+"");
                 RecyclerView rv = binding.rvInmuebleLista;
                 GridLayoutManager grid = new GridLayoutManager(root.getContext(), 2, GridLayoutManager.VERTICAL, false);
                 rv.setLayoutManager(grid);
                 InmueblesFragmentAdapter adapter = new InmueblesFragmentAdapter(getActivity(), inmuebles, getLayoutInflater(), R.id.nav_detalle_inmueble);
-
                 rv.setAdapter(adapter);
             }
         });

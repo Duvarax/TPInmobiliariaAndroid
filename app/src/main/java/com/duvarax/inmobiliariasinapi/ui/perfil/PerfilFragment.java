@@ -52,7 +52,7 @@ public class PerfilFragment extends Fragment {
                 String contraseña = binding.etPerfilClave.getText().toString();
                 String telefono = binding.etPerfilTelefono.getText().toString();
                 String email = binding.etPerfilEmail.getText().toString();
-                Propietario propietario = new Propietario(id,dni,nombre,apellido,email,contraseña,telefono, 0);
+                Propietario propietario = new Propietario(id,dni,nombre,apellido,email,contraseña,telefono);
 
                 mv.editarPropietario(propietario);
                 binding.btPerfilEditar.setText("Editar");

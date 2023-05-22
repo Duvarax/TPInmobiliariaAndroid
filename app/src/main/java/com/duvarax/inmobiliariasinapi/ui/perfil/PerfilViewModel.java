@@ -2,6 +2,9 @@ package com.duvarax.inmobiliariasinapi.ui.perfil;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -11,6 +14,11 @@ import androidx.lifecycle.ViewModel;
 
 import com.duvarax.inmobiliariasinapi.modelo.Propietario;
 import com.duvarax.inmobiliariasinapi.request.ApiClient;
+import com.duvarax.inmobiliariasinapi.request.ApiClientRetrofit;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class PerfilViewModel extends AndroidViewModel {
 
@@ -51,8 +59,29 @@ public class PerfilViewModel extends AndroidViewModel {
     }
 
     public void setPropietarioMutable(){
-        Propietario propietario = ApiClient.getApi().obtenerUsuarioActual();
-        propietarioMutable.setValue(propietario);
+        SharedPreferences sp = context.getSharedPreferences("token.xml", -1);
+        String token = sp.getString("token", "");
+        ApiClientRetrofit.EndPointInmobiliaria end = ApiClientRetrofit.getEndpointInmobiliaria();
+        Call<Propietario> propietarioCall = end.obtenerPerfil(token);
+
+        propietarioCall.enqueue(new Callback<Propietario>() {
+            @Override
+            public void onResponse(Call<Propietario> call, Response<Propietario> response) {
+                if(response.isSuccessful()){
+                    if(response.body() != null){
+
+                        Propietario propietario = response.body();
+                        propietarioMutable.setValue(propietario);
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Propietario> call, Throwable t) {
+                Log.d("salida", t.getMessage());
+                Toast.makeText(context, "Error en traer al propietario" , Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     public void setEditarMutable(){

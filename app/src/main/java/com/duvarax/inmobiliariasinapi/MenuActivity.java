@@ -60,8 +60,6 @@ public class MenuActivity extends AppCompatActivity {
                 View headerView = navigationView.getHeaderView(0);
                 TextView tvHeaderNombre = headerView.findViewById(R.id.tvMenuName);
                 TextView tvHeaderEmail = headerView.findViewById(R.id.tvMenuEmail);
-                ImageView ivMenuFoto = headerView.findViewById(R.id.ivMenuFoto);
-                ivMenuFoto.setImageResource(propietario.getAvatar());
                 tvHeaderNombre.setText(propietario.getNombre());
                 tvHeaderEmail.setText(propietario.getEmail());
             }

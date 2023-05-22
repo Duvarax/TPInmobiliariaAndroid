@@ -2,6 +2,9 @@ package com.duvarax.inmobiliariasinapi.ui.inmuebles;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -11,8 +14,13 @@ import androidx.lifecycle.ViewModel;
 
 import com.duvarax.inmobiliariasinapi.modelo.Inmueble;
 import com.duvarax.inmobiliariasinapi.request.ApiClient;
+import com.duvarax.inmobiliariasinapi.request.ApiClientRetrofit;
 
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class InmueblesViewModel extends AndroidViewModel {
 
@@ -33,6 +41,28 @@ public class InmueblesViewModel extends AndroidViewModel {
     }
 
     public void setListaInmueblesMutable(){
-        listaInmueblesMutable.setValue(ApiClient.getApi().obtnerPropiedades());
+        SharedPreferences sp = context.getSharedPreferences("token.xml", -1);
+        String token = sp.getString("token", "");
+        ApiClientRetrofit.EndPointInmobiliaria end = ApiClientRetrofit.getEndpointInmobiliaria();
+        Call<List<Inmueble>> listaInmueblesCall = end.obtenerInmuebles(token);
+        listaInmueblesCall.enqueue(new Callback<List<Inmueble>>() {
+            @Override
+            public void onResponse(Call<List<Inmueble>> call, Response<List<Inmueble>> response) {
+                if(response.isSuccessful()){
+
+                    if(response.body() != null){
+                        listaInmueblesMutable.setValue(response.body());
+                    }
+                }else{
+                    Log.d("salida",response.message());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Inmueble>> call, Throwable t) {
+                Log.d("salida", t.getMessage() + " Inmuebles");
+                Toast.makeText(context, "Error al cargar los inmuebles" , Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
