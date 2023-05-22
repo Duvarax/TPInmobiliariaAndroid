@@ -1,11 +1,20 @@
 package com.duvarax.inmobiliariasinapi;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import android.net.Uri;
 import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -26,6 +35,7 @@ import java.io.ObjectOutputStream;
 public class MainActivityViewModel extends AndroidViewModel {
     private Context context;
     private MutableLiveData<Boolean> logearMutable;
+    private MutableLiveData<LeeSensor> llamadaMutable;
 
     public MainActivityViewModel(@NonNull Application application) {
         super(application);
@@ -37,6 +47,17 @@ public class MainActivityViewModel extends AndroidViewModel {
             logearMutable = new MutableLiveData<>();
         }
         return logearMutable;
+    }
+
+    public LiveData<LeeSensor> getLlamada(){
+        if(llamadaMutable == null){
+            llamadaMutable = new MutableLiveData<>();
+        }
+        return llamadaMutable;
+    }
+
+    public void setLlamadaListener(){
+        llamadaMutable.setValue(new LeeSensor(context));
     }
 
     public void logear(String email, String clave){

@@ -30,7 +30,11 @@
         android:id="@+id/nav_contratos"
         android:name="com.duvarax.inmobiliariasinapi.ui.contratos.ContratosFragment"
         android:label="Contratos"
-        tools:layout="@layout/fragment_contratos" />
+        tools:layout="@layout/fragment_contratos" >
+        <action
+            android:id="@+id/action_nav_contratos_to_nav_detalle_contratos"
+            app:destination="@id/nav_detalle_contratos" />
+    </fragment>
     <fragment
         android:id="@+id/nav_inquilinos"
         android:name="com.duvarax.inmobiliariasinapi.ui.inquilinos.InquilinosFragment"
@@ -48,8 +52,8 @@
     <fragment
         android:id="@+id/nav_detalle_inmueble"
         android:name="com.duvarax.inmobiliariasinapi.ui.inmuebles.DetalleInmuebleFragment"
-        android:label="fragment_detalle_inmueble2"
-        tools:layout="@layout/fragment_detalle_inmueble2" >
+        android:label="Detalle Inmueble"
+        tools:layout="@layout/fragment_detalle_inmueble" >
         <action
             android:id="@+id/action_nav_detalle_inmueble_to_nav_inmuebles"
             app:destination="@id/nav_inmuebles" />
@@ -57,10 +61,31 @@
     <fragment
         android:id="@+id/nav_detalle_inquilino"
         android:name="com.duvarax.inmobiliariasinapi.ui.inquilinos.DetalleInquilinoFragment"
-        android:label="fragment_detalle_inquilino"
+        android:label="Detalle Inquilino"
         tools:layout="@layout/fragment_detalle_inquilino" >
         <action
             android:id="@+id/action_nav_detalle_inquilino_to_nav_inquilinos"
             app:destination="@id/nav_inquilinos" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_detalle_contratos"
+        android:name="com.duvarax.inmobiliariasinapi.ui.contratos.DetalleContratosFragment"
+        android:label="Detalle Contratos"
+        tools:layout="@layout/fragment_detalle_contratos" >
+        <action
+            android:id="@+id/action_nav_detalle_contratos_to_nav_contratos"
+            app:destination="@id/nav_contratos" />
+        <action
+            android:id="@+id/action_nav_detalle_contratos_to_pagosFragment"
+            app:destination="@id/nav_pagos" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_pagos"
+        android:name="com.duvarax.inmobiliariasinapi.ui.contratos.PagosFragment"
+        android:label="Listado de pagos"
+        tools:layout="@layout/fragment_pagos" >
+        <action
+            android:id="@+id/action_pagosFragment_to_nav_detalle_contratos"
+            app:destination="@id/nav_detalle_contratos" />
     </fragment>
 </navigation>

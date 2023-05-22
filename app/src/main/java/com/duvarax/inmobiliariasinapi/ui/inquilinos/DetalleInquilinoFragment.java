@@ -1,5 +1,7 @@
 package com.duvarax.inmobiliariasinapi.ui.inquilinos;
 
+import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
@@ -13,10 +15,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.duvarax.inmobiliariasinapi.R;
+import com.duvarax.inmobiliariasinapi.databinding.FragmentDetalleInquilinoBinding;
+import com.duvarax.inmobiliariasinapi.modelo.Inmueble;
+import com.duvarax.inmobiliariasinapi.modelo.Inquilino;
 
 public class DetalleInquilinoFragment extends Fragment {
 
-    private DetalleInquilinoViewModel mViewModel;
+    private DetalleInquilinoViewModel mv;
+    private FragmentDetalleInquilinoBinding binding;
 
     public static DetalleInquilinoFragment newInstance() {
         return new DetalleInquilinoFragment();
@@ -25,13 +31,33 @@ public class DetalleInquilinoFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_detalle_inquilino, container, false);
+        mv = ViewModelProvider.AndroidViewModelFactory.getInstance(getActivity().getApplication()).create(DetalleInquilinoViewModel.class);
+        binding = FragmentDetalleInquilinoBinding.inflate(inflater, container, false);
+        View root = binding.getRoot();
+
+        Bundle bundle = getArguments();
+
+        mv.getInquilino().observe(getActivity(), new Observer<Inquilino>() {
+            @Override
+            public void onChanged(Inquilino inquilino) {
+                binding.tvApellidoInquilino.setText(inquilino.getApellido());
+                binding.tvCodigoInquilino.setText(inquilino.getIdInquilino()+"");
+                binding.tvDniInquilino.setText(inquilino.getDNI()+"");
+                binding.tvEmailInquilino.setText(inquilino.getEmail());
+                binding.tvInquilinoNombre.setText(inquilino.getNombre());
+                binding.tvGaranteInquilino.setText(inquilino.getNombreGarante());
+                binding.tvTelefonoInquilino.setText(inquilino.getTelefono()+"");
+                binding.tvTelefonoGaranteInquilino.setText(inquilino.getTelefonoGarante());
+            }
+        });
+
+        mv.setInquilinoMutable((Inmueble) bundle.getSerializable("inmueble"));
+        return root;
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(DetalleInquilinoViewModel.class);
         // TODO: Use the ViewModel
     }
 

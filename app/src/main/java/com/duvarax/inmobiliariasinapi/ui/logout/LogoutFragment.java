@@ -13,25 +13,35 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.duvarax.inmobiliariasinapi.R;
+import com.duvarax.inmobiliariasinapi.databinding.FragmentLogoutBinding;
 
 public class LogoutFragment extends Fragment {
 
-    private LogoutViewModel mViewModel;
+
 
     public static LogoutFragment newInstance() {
         return new LogoutFragment();
     }
 
+    private FragmentLogoutBinding binding;
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_logout, container, false);
+        binding = FragmentLogoutBinding.inflate(inflater, container, false);
+        View root = binding.getRoot();
+
+        binding.btnSalir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Dialogo.mostrarDialogoBotones(getActivity());
+            }
+        });
+        return root;
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(LogoutViewModel.class);
         // TODO: Use the ViewModel
     }
 

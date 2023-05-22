@@ -13,8 +13,10 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.duvarax.inmobiliariasinapi.R;
 import com.duvarax.inmobiliariasinapi.databinding.FragmentInmueblesBinding;
 import com.duvarax.inmobiliariasinapi.modelo.Inmueble;
+import com.duvarax.inmobiliariasinapi.ui.InmueblesFragmentAdapter;
 
 import java.util.List;
 
@@ -35,7 +37,7 @@ public class InmueblesFragment extends Fragment {
                 RecyclerView rv = binding.rvInmuebleLista;
                 GridLayoutManager grid = new GridLayoutManager(root.getContext(), 2, GridLayoutManager.VERTICAL, false);
                 rv.setLayoutManager(grid);
-                InmueblesFragmentAdapter adapter = new InmueblesFragmentAdapter(getActivity(), inmuebles, getLayoutInflater());
+                InmueblesFragmentAdapter adapter = new InmueblesFragmentAdapter(getActivity(), inmuebles, getLayoutInflater(), R.id.nav_detalle_inmueble);
 
                 rv.setAdapter(adapter);
             }

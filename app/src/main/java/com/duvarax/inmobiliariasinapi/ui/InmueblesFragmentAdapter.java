@@ -1,9 +1,8 @@
-package com.duvarax.inmobiliariasinapi.ui.inmuebles;
+package com.duvarax.inmobiliariasinapi.ui;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,8 +16,6 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.request.RequestOptions;
 import com.duvarax.inmobiliariasinapi.R;
 import com.duvarax.inmobiliariasinapi.modelo.Inmueble;
 
@@ -29,11 +26,13 @@ public class InmueblesFragmentAdapter extends RecyclerView.Adapter<InmueblesFrag
     private Context context;
     private List<Inmueble> listaInmuebles;
     private LayoutInflater inflater;
+    private int objetivo;
 
-    public InmueblesFragmentAdapter(Context context, List<Inmueble> listaInmuebles, LayoutInflater inflater) {
+    public InmueblesFragmentAdapter(Context context, List<Inmueble> listaInmuebles, LayoutInflater inflater, int objetivo) {
         this.context = context;
         this.listaInmuebles = listaInmuebles;
         this.inflater = inflater;
+        this.objetivo = objetivo;
     }
 
     @NonNull
@@ -59,7 +58,7 @@ public class InmueblesFragmentAdapter extends RecyclerView.Adapter<InmueblesFrag
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("inmueble", listaInmuebles.get(position));
-                Navigation.findNavController((Activity)context ,R.id.nav_host_fragment_content_menu).navigate(R.id.nav_detalle_inmueble, bundle);
+                Navigation.findNavController((Activity)context ,R.id.nav_host_fragment_content_menu).navigate(objetivo, bundle);
             }
         });
     }

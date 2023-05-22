@@ -103,6 +103,14 @@ public class Inmueble implements Serializable {
     }
 
     @Override
+    public String toString() {
+        return "Inmueble{" +
+                "idInmueble=" + idInmueble +
+                ", direccion='" + direccion + '\'' +
+                '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
