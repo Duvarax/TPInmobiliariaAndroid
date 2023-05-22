@@ -52,7 +52,7 @@ public class DetalleInmuebleFragment extends Fragment {
                         .load(inmueble.getImagen())
                         .into(binding.ivFotoInmueble);
                 Log.d("salida", inmueble.isEstado()+"");
-                binding.cbInmuebleActivo.setEnabled(inmueble.isEstado());
+                binding.cbInmuebleActivo.setChecked(inmueble.isEstado());
             }
         });
 
