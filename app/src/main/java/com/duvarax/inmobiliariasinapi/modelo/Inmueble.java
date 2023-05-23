@@ -5,7 +5,7 @@ import java.util.Objects;
 
 public class Inmueble implements Serializable {
 
-    private int idInmueble;
+    private int Id;
     private String direccion;
     private String uso;
     private String tipo;
@@ -17,7 +17,7 @@ public class Inmueble implements Serializable {
     private String imagen;
 
     public Inmueble(int idInmueble, String direccion, String uso, String tipo, int ambientes, double precio, Propietario propietario, boolean estado, String imagen) {
-        this.idInmueble = idInmueble;
+        this.Id = idInmueble;
         this.direccion = direccion;
         this.uso = uso;
         this.tipo = tipo;
@@ -31,11 +31,11 @@ public class Inmueble implements Serializable {
 
     }
     public int getIdInmueble() {
-        return idInmueble;
+        return Id;
     }
 
     public void setIdInmueble(int idInmueble) {
-        this.idInmueble = idInmueble;
+        this.Id = idInmueble;
     }
 
     public String getDireccion() {
@@ -105,7 +105,7 @@ public class Inmueble implements Serializable {
     @Override
     public String toString() {
         return "Inmueble{" +
-                "idInmueble=" + idInmueble +
+                "idInmueble=" + Id +
                 ", direccion='" + direccion + '\'' +
                 '}';
     }
@@ -115,11 +115,11 @@ public class Inmueble implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Inmueble inmueble = (Inmueble) o;
-        return idInmueble == inmueble.idInmueble;
+        return Id == inmueble.Id;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idInmueble);
+        return Objects.hash(Id);
     }
 }
