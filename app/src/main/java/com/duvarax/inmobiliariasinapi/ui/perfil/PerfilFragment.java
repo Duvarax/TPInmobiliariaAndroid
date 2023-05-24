@@ -12,6 +12,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.duvarax.inmobiliariasinapi.databinding.FragmentPerfilBinding;
+import com.duvarax.inmobiliariasinapi.modelo.EditPropietario;
 import com.duvarax.inmobiliariasinapi.modelo.Propietario;
 
 
@@ -46,16 +47,17 @@ public class PerfilFragment extends Fragment {
             @Override
             public void onChanged(Boolean aBoolean) {
                 int id = Integer.parseInt(binding.etPerfilid.getText().toString());
-                Long dni = Long.parseLong(binding.etPerfilDni.getText().toString());
+                String dni = binding.etPerfilDni.getText().toString();
                 String nombre = binding.etPerfilNombre.getText().toString();
                 String apellido = binding.etPerfilApellido.getText().toString();
                 String contraseña = binding.etPerfilClave.getText().toString();
                 String telefono = binding.etPerfilTelefono.getText().toString();
                 String email = binding.etPerfilEmail.getText().toString();
-                Propietario propietario = new Propietario(id,dni,nombre,apellido,email,contraseña,telefono);
+                EditPropietario propietario = new EditPropietario(id,dni,nombre,apellido,email,contraseña,telefono);
 
                 mv.editarPropietario(propietario);
                 binding.btPerfilEditar.setText("Editar");
+                editable(false);
                 binding.btPerfilEditar.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

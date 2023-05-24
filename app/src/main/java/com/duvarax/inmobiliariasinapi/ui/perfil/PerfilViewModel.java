@@ -12,6 +12,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.duvarax.inmobiliariasinapi.modelo.EditPropietario;
 import com.duvarax.inmobiliariasinapi.modelo.Propietario;
 import com.duvarax.inmobiliariasinapi.request.ApiClient;
 import com.duvarax.inmobiliariasinapi.request.ApiClientRetrofit;
@@ -53,9 +54,26 @@ public class PerfilViewModel extends AndroidViewModel {
         return guardarMutable;
     }
 
-    public void editarPropietario(Propietario propietario){
-        ApiClient.getApi().actualizarPerfil(propietario);
-        propietarioMutable.setValue(propietario);
+    public void editarPropietario(EditPropietario propietario){
+        SharedPreferences sp = context.getSharedPreferences("token.xml", -1);
+        String token = sp.getString("token", "");
+        ApiClientRetrofit.EndPointInmobiliaria end = ApiClientRetrofit.getEndpointInmobiliaria();
+        Call<Propietario> propietarioEditCall = end.editarPerfil(token, propietario);
+        propietarioEditCall.enqueue(new Callback<Propietario>() {
+            @Override
+            public void onResponse(Call<Propietario> call, Response<Propietario> response) {
+                if(response.isSuccessful()){
+                    if(response.body() != null){
+                        propietarioMutable.setValue(response.body());
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Propietario> call, Throwable t) {
+                Log.d("salida", t.getMessage());
+            }
+        });
     }
 
     public void setPropietarioMutable(){
@@ -69,7 +87,7 @@ public class PerfilViewModel extends AndroidViewModel {
             public void onResponse(Call<Propietario> call, Response<Propietario> response) {
                 if(response.isSuccessful()){
                     if(response.body() != null){
-
+                        Log.d("salida propietario", response.body().toString() );
                         Propietario propietario = response.body();
                         propietarioMutable.setValue(propietario);
                     }

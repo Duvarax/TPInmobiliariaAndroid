@@ -35,7 +35,6 @@ public class InmueblesFragment extends Fragment {
         mv.setInmuebles().observe(getActivity(), new Observer<List<Inmueble>>() {
             @Override
             public void onChanged(List<Inmueble> inmuebles) {
-                Log.d("salida inmuebles", inmuebles.size()+"");
                 RecyclerView rv = binding.rvInmuebleLista;
                 GridLayoutManager grid = new GridLayoutManager(root.getContext(), 2, GridLayoutManager.VERTICAL, false);
                 rv.setLayoutManager(grid);

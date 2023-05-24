@@ -51,7 +51,6 @@ public class DetalleInmuebleFragment extends Fragment {
                 Glide.with(getActivity())
                         .load(inmueble.getImagen())
                         .into(binding.ivFotoInmueble);
-                Log.d("salida", inmueble.isEstado()+"");
                 binding.cbInmuebleActivo.setChecked(inmueble.isEstado());
             }
         });
@@ -59,13 +58,14 @@ public class DetalleInmuebleFragment extends Fragment {
         binding.cbInmuebleActivo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mv.modificarEstadoInmueble(binding.cbInmuebleActivo.isEnabled());
+                mv.modificarEstadoInmueble(binding.cbInmuebleActivo.isChecked());
             }
         });
 
-        mv.setInmueble((Inmueble) bundle.getSerializable("inmueble"));
+        Inmueble inmueble = (Inmueble) bundle.getSerializable("inmueble");
+        Log.d("salida inmueble", inmueble.toString());
+        mv.setInmueble(inmueble);
 
-        requireActivity().setTitle("Detalle Inmueble");
         return view;
 
     }

@@ -1,5 +1,7 @@
 package com.duvarax.inmobiliariasinapi.request;
 
+import com.duvarax.inmobiliariasinapi.modelo.EditInmuebleEstado;
+import com.duvarax.inmobiliariasinapi.modelo.EditPropietario;
 import com.duvarax.inmobiliariasinapi.modelo.Inmueble;
 import com.duvarax.inmobiliariasinapi.modelo.Propietario;
 import com.duvarax.inmobiliariasinapi.modelo.Usuario;
@@ -15,6 +17,7 @@ import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 
 public class ApiClientRetrofit {
     private static final String PATH="http://192.168.0.15:5200/api/";
@@ -41,8 +44,13 @@ public class ApiClientRetrofit {
         @GET("Propietario/perfil")
         Call<Propietario> obtenerPerfil(@Header("Authorization") String token);
 
+        @PUT("Propietario/editar")
+        Call<Propietario> editarPerfil(@Header("Authorization") String token, @Body EditPropietario propietario);
+
         @GET("Inmueble/propiedades")
         Call<List<Inmueble>> obtenerInmuebles(@Header("Authorization") String token);
+        @PUT("Inmueble/estado")
+        Call<Integer> editarEstadoInmueble(@Header("Authorization") String token, @Body EditInmuebleEstado edit);
 
     }
 }

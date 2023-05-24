@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,6 +58,7 @@ public class InmueblesFragmentAdapter extends RecyclerView.Adapter<InmueblesFrag
             @Override
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
+                Log.d("salida inmueble", listaInmuebles.get(position).toString());
                 bundle.putSerializable("inmueble", listaInmuebles.get(position));
                 Navigation.findNavController((Activity)context ,R.id.nav_host_fragment_content_menu).navigate(objetivo, bundle);
             }
