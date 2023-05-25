@@ -40,11 +40,11 @@ public class PagosFragmentAdapter extends RecyclerView.Adapter<PagosFragmentAdap
 
     @Override
     public void onBindViewHolder(@NonNull PagosFragmentAdapter.ViewHolder holder, int position) {
-        holder.codigoContrato.setText(listaPagos.get(position).getContrato().getIdContrato()+"");
+        holder.codigoContrato.setText(listaPagos.get(position).getcontratoId()+"");
         holder.importe.setText(listaPagos.get(position).getImporte()+"");
-        holder.fechaPago.setText(listaPagos.get(position).getFechaDePago());
-        holder.numeroPago.setText(listaPagos.get(position).getNumero()+"");
-        holder.codigoPago.setText(listaPagos.get(position).getIdPago()+"");
+        holder.fechaPago.setText(listaPagos.get(position).getfechaPago());
+        holder.identificadorPagoPago.setText(listaPagos.get(position).getidentificadorPago()+"");
+        holder.codigoPago.setText(listaPagos.get(position).getid()+"");
     }
 
     @Override
@@ -54,7 +54,7 @@ public class PagosFragmentAdapter extends RecyclerView.Adapter<PagosFragmentAdap
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView codigoPago;
-        TextView numeroPago;
+        TextView identificadorPagoPago;
         TextView codigoContrato;
         TextView importe;
         TextView fechaPago;
@@ -63,7 +63,7 @@ public class PagosFragmentAdapter extends RecyclerView.Adapter<PagosFragmentAdap
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             codigoPago = itemView.findViewById(R.id.tvCodigoPago);
-            numeroPago = itemView.findViewById(R.id.tvNumeroPago);
+            identificadorPagoPago = itemView.findViewById(R.id.tvidentificadorPagoPago);
             codigoContrato = itemView.findViewById(R.id.tvCodigoContrato);
             importe = itemView.findViewById(R.id.tvImporteContrato);
             fechaPago = itemView.findViewById(R.id.tvFechaPago);

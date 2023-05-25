@@ -50,7 +50,7 @@ public class InmueblesFragmentAdapter extends RecyclerView.Adapter<InmueblesFrag
 
 
         holder.direccion.setText(listaInmuebles.get(position).getDireccion());
-        holder.precio.setText(listaInmuebles.get(position).getPrecio()+"");
+        holder.precio.setText(listaInmuebles.get(position).getprecio()+"");
         Glide.with(context)
                 .load(listaInmuebles.get(position).getImagen())
                 .into(holder.foto);
@@ -81,7 +81,7 @@ public class InmueblesFragmentAdapter extends RecyclerView.Adapter<InmueblesFrag
             super(itemView);
             foto = itemView.findViewById(R.id.ivInmuebleFoto);
             direccion = itemView.findViewById(R.id.tvDireccionInmueble);
-            precio = itemView.findViewById(R.id.tvPrecioInmueble);
+            precio = itemView.findViewById(R.id.tvprecioInmueble);
             contenedor = itemView.findViewById(R.id.clContenedorInmueble);
 
         }

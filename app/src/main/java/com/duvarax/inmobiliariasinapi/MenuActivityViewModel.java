@@ -12,7 +12,6 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.duvarax.inmobiliariasinapi.modelo.Propietario;
-import com.duvarax.inmobiliariasinapi.request.ApiClient;
 import com.duvarax.inmobiliariasinapi.request.ApiClientRetrofit;
 
 import retrofit2.Call;

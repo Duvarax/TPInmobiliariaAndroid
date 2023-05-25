@@ -2,6 +2,7 @@ package com.duvarax.inmobiliariasinapi.ui.inquilinos;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.SharedPreferences;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -10,7 +11,11 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.duvarax.inmobiliariasinapi.modelo.Inmueble;
 import com.duvarax.inmobiliariasinapi.modelo.Inquilino;
-import com.duvarax.inmobiliariasinapi.request.ApiClient;
+import com.duvarax.inmobiliariasinapi.request.ApiClientRetrofit;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class DetalleInquilinoViewModel extends AndroidViewModel {
@@ -29,7 +34,25 @@ public class DetalleInquilinoViewModel extends AndroidViewModel {
     }
 
     public void setInquilinoMutable(Inmueble inmueble){
-        inquilinoMutable.setValue(ApiClient.getApi().obtenerInquilino(inmueble));
+        SharedPreferences sp = context.getSharedPreferences("token.xml", -1);
+        String token = sp.getString("token", "");
+        ApiClientRetrofit.EndPointInmobiliaria end = ApiClientRetrofit.getEndpointInmobiliaria();
+        Call<Inquilino> inquilinoCall = end.obtenerInquilino(token, inmueble);
+        inquilinoCall.enqueue(new Callback<Inquilino>() {
+            @Override
+            public void onResponse(Call<Inquilino> call, Response<Inquilino> response) {
+                if(response.isSuccessful()){
+                    if(response.body() != null){
+                        inquilinoMutable.setValue(response.body());
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Inquilino> call, Throwable t) {
+
+            }
+        });
     }
     // TODO: Implement the ViewModel
 }

@@ -19,7 +19,6 @@ import android.view.ViewGroup;
 import com.duvarax.inmobiliariasinapi.R;
 import com.duvarax.inmobiliariasinapi.databinding.FragmentInquilinosBinding;
 import com.duvarax.inmobiliariasinapi.modelo.Inmueble;
-import com.duvarax.inmobiliariasinapi.request.ApiClient;
 import com.duvarax.inmobiliariasinapi.ui.InmueblesFragmentAdapter;
 
 import java.util.List;

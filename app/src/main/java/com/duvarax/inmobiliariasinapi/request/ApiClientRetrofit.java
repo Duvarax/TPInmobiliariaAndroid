@@ -1,8 +1,11 @@
 package com.duvarax.inmobiliariasinapi.request;
 
+import com.duvarax.inmobiliariasinapi.modelo.Contrato;
 import com.duvarax.inmobiliariasinapi.modelo.EditInmuebleEstado;
 import com.duvarax.inmobiliariasinapi.modelo.EditPropietario;
 import com.duvarax.inmobiliariasinapi.modelo.Inmueble;
+import com.duvarax.inmobiliariasinapi.modelo.Inquilino;
+import com.duvarax.inmobiliariasinapi.modelo.Pago;
 import com.duvarax.inmobiliariasinapi.modelo.Propietario;
 import com.duvarax.inmobiliariasinapi.modelo.Usuario;
 import com.google.gson.Gson;
@@ -51,6 +54,14 @@ public class ApiClientRetrofit {
         Call<List<Inmueble>> obtenerInmuebles(@Header("Authorization") String token);
         @PUT("Inmueble/estado")
         Call<Integer> editarEstadoInmueble(@Header("Authorization") String token, @Body EditInmuebleEstado edit);
+        @GET("Inmueble/propiedades-alquiladas")
+        Call<List<Inmueble>> obtenerInmueblesAlquilados(@Header("Authorization") String token);
+        @POST("Inquilino/")
+        Call<Inquilino> obtenerInquilino(@Header("Authorization") String token, @Body Inmueble inmueble);
+        @POST("Contrato/")
+        Call<Contrato> obtenerContrato(@Header("Authorization") String token, @Body Inmueble inmueble);
+        @POST("Pago/")
+        Call<List<Pago>> obtenerPagos(@Header("Authorization") String token, @Body Contrato contrato);
 
     }
 }

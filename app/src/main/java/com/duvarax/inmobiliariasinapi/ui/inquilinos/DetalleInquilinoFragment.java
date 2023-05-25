@@ -41,13 +41,11 @@ public class DetalleInquilinoFragment extends Fragment {
             @Override
             public void onChanged(Inquilino inquilino) {
                 binding.tvApellidoInquilino.setText(inquilino.getApellido());
-                binding.tvCodigoInquilino.setText(inquilino.getIdInquilino()+"");
+                binding.tvCodigoInquilino.setText(inquilino.getid()+"");
                 binding.tvDniInquilino.setText(inquilino.getDNI()+"");
                 binding.tvEmailInquilino.setText(inquilino.getEmail());
                 binding.tvInquilinoNombre.setText(inquilino.getNombre());
-                binding.tvGaranteInquilino.setText(inquilino.getNombreGarante());
                 binding.tvTelefonoInquilino.setText(inquilino.getTelefono()+"");
-                binding.tvTelefonoGaranteInquilino.setText(inquilino.getTelefonoGarante());
             }
         });
 

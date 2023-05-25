@@ -47,7 +47,7 @@ public class DetalleInmuebleFragment extends Fragment {
                 binding.tvInmuebleDireccion.setText(inmueble.getDireccion());
                 binding.tvTipoInmueble.setText(inmueble.getTipo());
                 binding.tvUsoInmueble.setText(inmueble.getUso());
-                binding.tvInmueblePrecio.setText(inmueble.getPrecio()+"");
+                binding.tvInmuebleprecio.setText(inmueble.getprecio()+"");
                 Glide.with(getActivity())
                         .load(inmueble.getImagen())
                         .into(binding.ivFotoInmueble);

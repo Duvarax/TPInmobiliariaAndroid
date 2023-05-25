@@ -41,12 +41,12 @@ public class DetalleContratosFragment extends Fragment {
         mv.getContrato().observe(getActivity(), new Observer<Contrato>() {
             @Override
             public void onChanged(Contrato contrato) {
-                binding.tvCodigoContrato.setText(contrato.getIdContrato()+"");
+                binding.tvCodigoContrato.setText(contrato.getid()+"");
                 binding.tvFechaInContrato.setText(contrato.getFechaInicio());
                 binding.tvFechaOutContrato.setText(contrato.getFechaFin());
                 binding.tvInmuebleContrato.setText(contrato.getInmueble().getDireccion());
                 binding.tvInquilinoContrato.setText(contrato.getInquilino().getNombre());
-                binding.tvMontoContrato.setText(contrato.getMontoAlquiler()+"");
+                binding.tvMontoContrato.setText(contrato.getprecio()+"");
                 binding.btPagosContrato.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

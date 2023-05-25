@@ -40,14 +40,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="44dp"
-            android:text="Numero de pago:"
-            app:layout_constraintEnd_toStartOf="@+id/tvNumeroPago"
+            android:text="identificador de Pago:"
+            app:layout_constraintEnd_toStartOf="@+id/tvidentificadorPagoPago"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
         <TextView
-            android:id="@+id/tvNumeroPago"
+            android:id="@+id/tvidentificadorPagoPago"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="44dp"
@@ -62,10 +62,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="44dp"
             android:text="Codigo de contrato:"
-            app:layout_constraintEnd_toStartOf="@+id/tvNumeroPago"
+            app:layout_constraintEnd_toStartOf="@+id/tvidentificadorPagoPago"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvNumeroPago" />
+            app:layout_constraintTop_toBottomOf="@+id/tvidentificadorPagoPago" />
 
         <TextView
             android:id="@+id/tvCodigoContrato"
@@ -75,7 +75,7 @@
             android:layout_marginEnd="164dp"
             android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvNumeroPago" />
+            app:layout_constraintTop_toBottomOf="@+id/tvidentificadorPagoPago" />
 
         <TextView
             android:id="@+id/textView20"

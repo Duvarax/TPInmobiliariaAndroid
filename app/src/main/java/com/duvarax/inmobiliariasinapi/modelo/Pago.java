@@ -1,39 +1,51 @@
 package com.duvarax.inmobiliariasinapi.modelo;
 
+import androidx.annotation.NonNull;
+
 import java.io.Serializable;
 
 public class Pago implements Serializable {
 
-    private int idPago;
-    private int numero;
+    private int id;
+    private int identificadorPago;
     private Contrato contrato;
-    private double importe;
-    private String fechaDePago;
+    private Double importe;
+    private String fechaPago;
+    private int contratoId;
 
     public Pago() {}
 
-    public Pago(int idPago, int numero, Contrato contrato, double importe, String fechaDePago) {
-        this.idPago = idPago;
-        this.numero = numero;
+    public Pago(int id, int identificadorPago, Contrato contrato, Double importe, String fechaPago, int contratoId) {
+        this.id = id;
+        this.identificadorPago = identificadorPago;
         this.contrato = contrato;
         this.importe = importe;
-        this.fechaDePago = fechaDePago;
+        this.fechaPago = fechaPago;
+        this.contratoId = contratoId;
     }
 
-    public int getIdPago() {
-        return idPago;
+    public Pago(int id, int identificadorPago, Double importe, String fechaPago, int contratoId) {
+        this.id = id;
+        identificadorPago = identificadorPago;
+        this.importe = importe;
+        this.fechaPago = fechaPago;
+        this.contratoId = contratoId;
     }
 
-    public void setIdPago(int idPago) {
-        this.idPago = idPago;
+    public int getid() {
+        return id;
     }
 
-    public int getNumero() {
-        return numero;
+    public void setid(int id) {
+        this.id = id;
     }
 
-    public void setNumero(int numero) {
-        this.numero = numero;
+    public int getidentificadorPago() {
+        return identificadorPago;
+    }
+
+    public void setidentificadorPago(int identificadorPago) {
+        this.identificadorPago = identificadorPago;
     }
 
     public Contrato getContrato() {
@@ -44,19 +56,33 @@ public class Pago implements Serializable {
         this.contrato = contrato;
     }
 
-    public double getImporte() {
+    public Double getImporte() {
         return importe;
     }
 
-    public void setImporte(double importe) {
+    public void setImporte(Double importe) {
         this.importe = importe;
     }
 
-    public String getFechaDePago() {
-        return fechaDePago;
+    public String getfechaPago() {
+        return fechaPago;
     }
 
-    public void setFechaDePago(String fechaDePago) {
-        this.fechaDePago = fechaDePago;
+    public void setfechaPago(String fechaPago) {
+        this.fechaPago = fechaPago;
+    }
+
+    public int getcontratoId() {
+        return contratoId;
+    }
+
+    public void setcontratoId(int contratoId) {
+        this.contratoId = contratoId;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return id + " " + identificadorPago + " " + importe + " " + fechaPago;
     }
 }

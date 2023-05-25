@@ -11,6 +11,7 @@ public class Inmueble implements Serializable {
     private String tipo;
     private int ambientes;
     private double precio;
+
     private Propietario propietario;
     //En falso significa que el innmueble no está disponible por alguna falla en el mismo.
     private boolean estado=true;
@@ -70,11 +71,11 @@ public class Inmueble implements Serializable {
         this.ambientes = ambientes;
     }
 
-    public double getPrecio() {
+    public double getprecio() {
         return precio;
     }
 
-    public void setPrecio(double precio) {
+    public void setprecio(double precio) {
         this.precio = precio;
     }
 
