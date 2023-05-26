@@ -34,7 +34,7 @@ public class PerfilFragment extends Fragment {
             @Override
             public void onChanged(Propietario propietario) {
                 binding.etPerfilid.setText(propietario.getId()+"");
-                binding.etPerfilDni.setText(propietario.getDni().toString());
+                binding.etPerfildni.setText(propietario.getdni().toString());
                 binding.etPerfilNombre.setText(propietario.getNombre());
                 binding.etPerfilApellido.setText(propietario.getApellido());
                 binding.etPerfilEmail.setText(propietario.getEmail());
@@ -47,7 +47,7 @@ public class PerfilFragment extends Fragment {
             @Override
             public void onChanged(Boolean aBoolean) {
                 int id = Integer.parseInt(binding.etPerfilid.getText().toString());
-                String dni = binding.etPerfilDni.getText().toString();
+                String dni = binding.etPerfildni.getText().toString();
                 String nombre = binding.etPerfilNombre.getText().toString();
                 String apellido = binding.etPerfilApellido.getText().toString();
                 String contraseña = binding.etPerfilClave.getText().toString();
@@ -99,7 +99,7 @@ public class PerfilFragment extends Fragment {
     public void editable(Boolean bool){
         binding.etPerfilid.setEnabled(bool);
         binding.etPerfilApellido.setEnabled(bool);
-        binding.etPerfilDni.setEnabled(bool);
+        binding.etPerfildni.setEnabled(bool);
         binding.etPerfilNombre.setEnabled(bool);
         binding.etPerfilClave.setEnabled(bool);
         binding.etPerfilTelefono.setEnabled(bool);

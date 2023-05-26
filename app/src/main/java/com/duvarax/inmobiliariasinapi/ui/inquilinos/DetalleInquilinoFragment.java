@@ -42,7 +42,7 @@ public class DetalleInquilinoFragment extends Fragment {
             public void onChanged(Inquilino inquilino) {
                 binding.tvApellidoInquilino.setText(inquilino.getApellido());
                 binding.tvCodigoInquilino.setText(inquilino.getid()+"");
-                binding.tvDniInquilino.setText(inquilino.getDNI()+"");
+                binding.tvdniInquilino.setText(inquilino.getdni()+"");
                 binding.tvEmailInquilino.setText(inquilino.getEmail());
                 binding.tvInquilinoNombre.setText(inquilino.getNombre());
                 binding.tvTelefonoInquilino.setText(inquilino.getTelefono()+"");

@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Inquilino implements Serializable {
 
     private int id;
-    private String DNI;
+    private String dni;
     private String nombre;
     private String apellido;
     private String email;
@@ -14,9 +14,9 @@ public class Inquilino implements Serializable {
 
     public Inquilino() {}
 
-    public Inquilino(int id, String DNI, String nombre, String apellido, String email, String telefono) {
+    public Inquilino(int id, String dni, String nombre, String apellido, String email, String telefono) {
         this.id = id;
-        this.DNI = DNI;
+        this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
@@ -31,12 +31,12 @@ public class Inquilino implements Serializable {
         this.id = id;
     }
 
-    public String getDNI() {
-        return DNI;
+    public String getdni() {
+        return dni;
     }
 
-    public void setDNI(String DNI) {
-        this.DNI = DNI;
+    public void setdni(String dni) {
+        this.dni = dni;
     }
 
     public String getNombre() {
@@ -72,5 +72,15 @@ public class Inquilino implements Serializable {
         this.telefono = telefono;
     }
 
-
+    @Override
+    public String toString() {
+        return "Inquilino{" +
+                "id=" + id +
+                ", dni='" + dni + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", email='" + email + '\'' +
+                ", telefono='" + telefono + '\'' +
+                '}';
+    }
 }

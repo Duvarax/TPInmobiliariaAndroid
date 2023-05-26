@@ -92,14 +92,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="DNI:"
+        android:text="dni:"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.194"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvApellidoInquilino" />
 
     <TextView
-        android:id="@+id/tvDniInquilino"
+        android:id="@+id/tvdniInquilino"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -119,7 +119,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.198"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDniInquilino" />
+        app:layout_constraintTop_toBottomOf="@+id/tvdniInquilino" />
 
     <TextView
         android:id="@+id/tvEmailInquilino"

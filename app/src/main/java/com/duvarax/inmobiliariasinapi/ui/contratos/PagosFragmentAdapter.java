@@ -42,7 +42,9 @@ public class PagosFragmentAdapter extends RecyclerView.Adapter<PagosFragmentAdap
     public void onBindViewHolder(@NonNull PagosFragmentAdapter.ViewHolder holder, int position) {
         holder.codigoContrato.setText(listaPagos.get(position).getcontratoId()+"");
         holder.importe.setText(listaPagos.get(position).getImporte()+"");
-        holder.fechaPago.setText(listaPagos.get(position).getfechaPago());
+        String fechaAux = listaPagos.get(position).getfechaPago();
+        String fecha = fechaAux.substring(0,10);
+        holder.fechaPago.setText(fecha);
         holder.identificadorPagoPago.setText(listaPagos.get(position).getidentificadorPago()+"");
         holder.codigoPago.setText(listaPagos.get(position).getid()+"");
     }

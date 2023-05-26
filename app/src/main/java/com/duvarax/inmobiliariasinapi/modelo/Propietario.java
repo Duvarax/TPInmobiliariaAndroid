@@ -32,11 +32,11 @@ public class Propietario implements Serializable {
         this.id = id;
     }
 
-    public Long getDni() {
+    public Long getdni() {
         return dni;
     }
 
-    public void setDni(Long dni) {
+    public void setdni(Long dni) {
         this.dni = dni;
     }
 

@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -42,8 +43,12 @@ public class DetalleContratosFragment extends Fragment {
             @Override
             public void onChanged(Contrato contrato) {
                 binding.tvCodigoContrato.setText(contrato.getid()+"");
-                binding.tvFechaInContrato.setText(contrato.getFechaInicio());
-                binding.tvFechaOutContrato.setText(contrato.getFechaFin());
+                String fechaAux = contrato.getFechaInicio();
+                String fecha = fechaAux.substring(0,10);
+                binding.tvFechaInContrato.setText(fecha);
+                fechaAux = contrato.getFechaFin();
+                fecha = fechaAux.substring(0,10);
+                binding.tvFechaOutContrato.setText(fecha);
                 binding.tvInmuebleContrato.setText(contrato.getInmueble().getDireccion());
                 binding.tvInquilinoContrato.setText(contrato.getInquilino().getNombre());
                 binding.tvMontoContrato.setText(contrato.getprecio()+"");
@@ -57,6 +62,7 @@ public class DetalleContratosFragment extends Fragment {
                 });
             }
         });
+
 
         mv.setContrato((Inmueble) bundle.getSerializable("inmueble"));
         return root;

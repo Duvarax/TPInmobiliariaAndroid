@@ -26,7 +26,7 @@ public class Pago implements Serializable {
 
     public Pago(int id, int identificadorPago, Double importe, String fechaPago, int contratoId) {
         this.id = id;
-        identificadorPago = identificadorPago;
+        this.identificadorPago = identificadorPago;
         this.importe = importe;
         this.fechaPago = fechaPago;
         this.contratoId = contratoId;

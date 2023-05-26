@@ -30,11 +30,11 @@ public class EditPropietario {
         this.id = id;
     }
 
-    public String getDni() {
+    public String getdni() {
         return dni;
     }
 
-    public void setDni(String dni) {
+    public void setdni(String dni) {
         this.dni = dni;
     }
 
