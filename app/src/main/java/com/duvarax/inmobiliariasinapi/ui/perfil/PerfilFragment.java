@@ -37,8 +37,8 @@ public class PerfilFragment extends Fragment {
                 binding.etPerfildni.setText(propietario.getdni().toString());
                 binding.etPerfilNombre.setText(propietario.getNombre());
                 binding.etPerfilApellido.setText(propietario.getApellido());
-                binding.etPerfilEmail.setText(propietario.getEmail());
                 binding.etPerfilClave.setText(propietario.getContraseña());
+                binding.etPerfilEmail.setText(propietario.getEmail());
                 binding.etPerfilTelefono.setText(propietario.getTelefono());
                 editable(false);
             }
@@ -101,7 +101,6 @@ public class PerfilFragment extends Fragment {
         binding.etPerfilApellido.setEnabled(bool);
         binding.etPerfildni.setEnabled(bool);
         binding.etPerfilNombre.setEnabled(bool);
-        binding.etPerfilClave.setEnabled(bool);
         binding.etPerfilTelefono.setEnabled(bool);
         binding.etPerfilEmail.setEnabled(bool);
     }
