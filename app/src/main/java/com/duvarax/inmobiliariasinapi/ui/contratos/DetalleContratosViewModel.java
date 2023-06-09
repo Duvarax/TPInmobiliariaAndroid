@@ -43,7 +43,7 @@ public class DetalleContratosViewModel extends AndroidViewModel {
             public void onResponse(Call<Contrato> call, Response<Contrato> response) {
                 if(response.isSuccessful()){
                     if(response.body() != null){
-                        contratoMutable.setValue(response.body());
+                        contratoMutable.postValue(response.body());
                     }
                 }
             }

@@ -44,7 +44,7 @@ public class InquilinosViewModel extends AndroidViewModel {
             public void onResponse(Call<List<Inmueble>> call, Response<List<Inmueble>> response) {
                 if(response.isSuccessful()){
                     if(response.body() != null){
-                        listaInmueblesMutable.setValue(response.body());
+                        listaInmueblesMutable.postValue(response.body());
                     }
                 }
             }

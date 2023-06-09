@@ -54,7 +54,7 @@ public class PagosViewModel extends AndroidViewModel {
                             Log.d("salida pago", pago.getidentificadorPago()+ " " + pag.getidentificadorPago());
                             listaPagos.add(pag);
                         }
-                        listaPagosMutable.setValue(listaPagos);
+                        listaPagosMutable.postValue(listaPagos);
                     }
                 }else{
                     Log.d("salida pagos", response.toString());

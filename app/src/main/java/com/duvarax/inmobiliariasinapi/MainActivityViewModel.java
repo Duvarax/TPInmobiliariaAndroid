@@ -62,7 +62,7 @@ public class MainActivityViewModel extends AndroidViewModel {
                         SharedPreferences.Editor editor = sp.edit();
                         editor.putString("token", "Bearer " +  response.body());
                         editor.commit();
-                        logearMutable.setValue(true);
+                        logearMutable.postValue(true);
                     }
                 }
             }

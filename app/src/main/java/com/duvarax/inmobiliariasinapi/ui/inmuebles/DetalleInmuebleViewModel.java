@@ -52,8 +52,10 @@ public class DetalleInmuebleViewModel extends AndroidViewModel {
             public void onResponse(Call<Integer> call, Response<Integer> response) {
                 if(response.isSuccessful()){
                     if(response.body() != null){
-                        Log.d("salida estado", response.body().toString());
-                        Toast.makeText(context, "Estado modificado", Toast.LENGTH_SHORT).show();
+                        if(response.body() == 1)
+                        {
+                            Toast.makeText(context, "Estado modificado", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 }else{
                     Log.d("salida", response.toString());

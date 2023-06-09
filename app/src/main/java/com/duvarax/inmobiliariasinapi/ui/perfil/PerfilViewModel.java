@@ -62,7 +62,7 @@ public class PerfilViewModel extends AndroidViewModel {
             public void onResponse(Call<Propietario> call, Response<Propietario> response) {
                 if(response.isSuccessful()){
                     if(response.body() != null){
-                        propietarioMutable.setValue(response.body());
+                        propietarioMutable.postValue(response.body());
                     }
                 }
             }
@@ -87,7 +87,7 @@ public class PerfilViewModel extends AndroidViewModel {
                     if(response.body() != null){
                         Log.d("salida propietario", response.body().toString() );
                         Propietario propietario = response.body();
-                        propietarioMutable.setValue(propietario);
+                        propietarioMutable.postValue(propietario);
                     }
                 }
             }

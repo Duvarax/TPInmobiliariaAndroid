@@ -44,8 +44,7 @@ public class DetalleInquilinoViewModel extends AndroidViewModel {
             public void onResponse(Call<Inquilino> call, Response<Inquilino> response) {
                 if(response.isSuccessful()){
                     if(response.body() != null){
-                        Log.d("salida inquilino", response.body().toString());
-                        inquilinoMutable.setValue(response.body());
+                        inquilinoMutable.postValue(response.body());
                     }
                 }
             }

@@ -49,7 +49,7 @@ public class MenuActivityViewModel extends AndroidViewModel {
 
                         Propietario propietario = response.body();
                         Log.d("salida", propietario.toString());
-                        propietarioMutable.setValue(propietario);
+                        propietarioMutable.postValue(propietario);
                     }
                 }else{
                     Log.d("salida", response.message());

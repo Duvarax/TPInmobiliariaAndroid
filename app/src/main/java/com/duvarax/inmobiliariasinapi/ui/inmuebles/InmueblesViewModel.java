@@ -49,7 +49,7 @@ public class InmueblesViewModel extends AndroidViewModel {
                 if(response.isSuccessful()){
 
                     if(response.body() != null){
-                        listaInmueblesMutable.setValue(response.body());
+                        listaInmueblesMutable.postValue(response.body());
                     }
                 }else{
                     Log.d("salida",response.message());
@@ -58,7 +58,6 @@ public class InmueblesViewModel extends AndroidViewModel {
 
             @Override
             public void onFailure(Call<List<Inmueble>> call, Throwable t) {
-                Log.d("salida", t.getMessage() + " Inmuebles");
                 Toast.makeText(context, "Error al cargar los inmuebles" , Toast.LENGTH_SHORT).show();
             }
         });
